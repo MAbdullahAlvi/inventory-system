@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Inventory\SaveruleController;
 use App\Models\AuditLog;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Inventory\PricingController;
@@ -14,6 +15,7 @@ Route::prefix('inventory')->group(function () {
     Route::get('/products/{product}/price', [PricingController::class, 'calculatePrice']);
 
     Route::post('/inventory/update', [InventoryController::class, 'update']);
+    Route::post('/saverules', [SaveruleController::class, 'store']);
 
     Route::post('/transactions/process', [TransactionController::class, 'process']);
 
